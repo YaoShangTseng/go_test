@@ -4,12 +4,11 @@ import (
 	"fmt"
 )
 
-func main() {
-	x := 42
-	y := "James Bond"
-	z := true
+var x int
+var y string
+var z bool
 
-	fmt.Println(x, y, z)
+func main() {
 	fmt.Println(x)
 	fmt.Println(y)
 	fmt.Println(z)
