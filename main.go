@@ -5,12 +5,7 @@ import (
 )
 
 func main() {
-	bd := 1987
-	for {
-		if bd > 2018 {
-			break
-		}
-		fmt.Println(bd)
-		bd++
+	for i := 10; i <= 100; i++ {
+		fmt.Printf("When %v is divided by 4, the remainder (aka modulus) is %v\n", i, i%4)
 	}
 }
