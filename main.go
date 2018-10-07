@@ -5,10 +5,9 @@ import (
 )
 
 func main() {
-	for i := 65; i <= 90; i++ {
-		fmt.Println(i)
-		for j := 0; j < 3; j++ {
-			fmt.Printf("\t%#U\n", i)
-		}
+	bd := 1987
+	for bd <= 2018 {
+		fmt.Println(bd)
+		bd++
 	}
 }
