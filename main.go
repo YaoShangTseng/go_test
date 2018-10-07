@@ -4,11 +4,9 @@ import (
 	"fmt"
 )
 
-const (
-	a     = 42
-	b int = 43
-)
-
 func main() {
-	fmt.Println(a, b)
+	a := 42
+	fmt.Printf("%d\t%b\t%#x\n", a, a, a)
+	b := a << 1
+	fmt.Printf("%d\t%b\t%#x\n", b, b, b)
 }
