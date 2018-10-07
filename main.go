@@ -5,12 +5,10 @@ import (
 )
 
 func main() {
-	x := "James Bond"
-	if x == "Moneypenny" {
-		fmt.Println(x)
-	} else if x == "James Bond" {
-		fmt.Println("BONDDONBONDONBOND", x)
-	} else {
-		fmt.Println("neither")
+	switch {
+	case false:
+		fmt.Println("should not print")
+	case true:
+		fmt.Println("should print")
 	}
 }
