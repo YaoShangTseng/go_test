@@ -6,7 +6,11 @@ import (
 
 func main() {
 	x := "James Bond"
-	if x == "James Bond" {
+	if x == "Moneypenny" {
 		fmt.Println(x)
+	} else if x == "James Bond" {
+		fmt.Println("BONDDONBONDONBOND", x)
+	} else {
+		fmt.Println("neither")
 	}
 }
