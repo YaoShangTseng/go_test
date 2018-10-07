@@ -5,7 +5,8 @@ import (
 )
 
 func main() {
-	for i := 10; i <= 100; i++ {
-		fmt.Printf("When %v is divided by 4, the remainder (aka modulus) is %v\n", i, i%4)
+	x := "James Bond"
+	if x == "James Bond" {
+		fmt.Println(x)
 	}
 }
