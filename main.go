@@ -5,15 +5,9 @@ import (
 )
 
 func main() {
-	favSport := "surfing"
-	switch favSport {
-	case "skiing":
-		fmt.Println("go to the mountains!")
-	case "swimming":
-		fmt.Println("go to the pool!")
-	case "surfing":
-		fmt.Println("go to hawaii!")
-	case "wingsuit flying":
-		fmt.Println("what would you like me to say at your funeral?")
+	x := [5]int{42, 43, 44, 45, 46}
+	for i, v := range x {
+		fmt.Println(i, v)
 	}
+	fmt.Printf("%T\n", x)
 }
