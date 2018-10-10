@@ -13,6 +13,8 @@ func main() {
 
 	m["fleming_ian"] = []string{`steaks`, `cigars`, `espionage`}
 
+	delete(m, `no_dr`)
+
 	for k, v := range m {
 		fmt.Println("This is the record for", k)
 		for i, v2 := range v {
