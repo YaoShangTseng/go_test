@@ -2,41 +2,40 @@ package main
 
 import "fmt"
 
-type person struct {
-	first      string
-	last       string
-	favFlavors []string
+type vehicle struct {
+	doors int
+	color string
+}
+
+type truck struct {
+	vehicle
+	fourWheel bool
+}
+
+type sedan struct {
+	vehicle
+	luxury bool
 }
 
 func main() {
-	p1 := person{
-		first: "James",
-		last:  "Bond",
-		favFlavors: []string{
-			"chocolate", "martini", "rum and coke",
+	t := truck{
+		vehicle: vehicle{
+			doors: 2,
+			color: "white",
 		},
+		fourWheel: true,
 	}
 
-	p2 := person{
-		first: "Miss",
-		last:  "Moneypenny",
-		favFlavors: []string{
-			"strawberry", "vanilla", "capuccino",
+	s := sedan{
+		vehicle: vehicle{
+			doors: 4,
+			color: "black",
 		},
+		luxury: false,
 	}
 
-	m := map[string]person{
-		p1.last: p1,
-		p2.last: p2,
-	}
-
-	for k, v := range m {
-		fmt.Println(k)
-		fmt.Println(v.first)
-		fmt.Println(v.last)
-		for i, val := range v.favFlavors {
-			fmt.Println(i, val)
-		}
-		fmt.Println("-------")
-	}
+	fmt.Println(t)
+	fmt.Println(s)
+	fmt.Println(t.doors)
+	fmt.Println(s.doors)
 }
