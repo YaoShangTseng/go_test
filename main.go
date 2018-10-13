@@ -2,23 +2,37 @@ package main
 
 import "fmt"
 
+type person struct {
+	first      string
+	last       string
+	favFlavors []string
+}
+
 func main() {
-	m := map[string][]string{
-		`bond_james`:      []string{`Shaken, not stirred`, `Martinis`, `Women`},
-		`moneypenny_miss`: []string{`James Bond`, `Literature`, `Computer Science`},
-		`no_dr`:           []string{`Being evil`, `Ice cream`, `Sunsets`},
+	p1 := person{
+		first: "James",
+		last:  "Bond",
+		favFlavors: []string{
+			"chocolate", "martini", "rum and coke",
+		},
 	}
 
-	// fmt.Println(m)
+	p2 := person{
+		first: "Miss",
+		last:  "Moneypenny",
+		favFlavors: []string{
+			"strawberry", "vanilla", "capuccino",
+		},
+	}
+	fmt.Println(p1.first)
+	fmt.Println(p1.last)
+	for i, v := range p1.favFlavors {
+		fmt.Println(i, v)
+	}
 
-	m["fleming_ian"] = []string{`steaks`, `cigars`, `espionage`}
-
-	delete(m, `no_dr`)
-
-	for k, v := range m {
-		fmt.Println("This is the record for", k)
-		for i, v2 := range v {
-			fmt.Println("\t", i, v2)
-		}
+	fmt.Println(p2.first)
+	fmt.Println(p2.last)
+	for i, v := range p2.favFlavors {
+		fmt.Println(i, v)
 	}
 }
