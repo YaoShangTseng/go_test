@@ -3,30 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	s := struct {
-		first     string
-		friends   map[string]int
-		favDrinks []string
-	}{
-		first: "James",
-		friends: map[string]int{
-			"Moneypenny": 555,
-			"Q":          777,
-			"M":          888,
-		},
-		favDrinks: []string{
-			"Martini", "Water",
-		},
-	}
+	n := foo()
+	x, s := bar()
+	fmt.Println(n, x, s)
+}
 
-	fmt.Println(s.first)
-	fmt.Println(s.friends)
-	fmt.Println(s.favDrinks)
+func foo() int {
+	return 42
+}
 
-	for k, v := range s.friends {
-		fmt.Println(k, v)
-	}
-	for i, val := range s.favDrinks {
-		fmt.Println(i, val)
-	}
+func bar() (int, string) {
+	return 1984, "Big Brother is Watching"
 }
