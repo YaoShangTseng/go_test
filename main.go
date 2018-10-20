@@ -4,18 +4,21 @@ import (
 	"fmt"
 )
 
+type person struct {
+	first string
+	last  string
+	age   int
+}
+
+func (p person) speak() {
+	fmt.Println("I am ", p.first, p.last, "and I am", p.age, "years old.")
+}
+
 func main() {
-	defer foo()
-	bar()
-}
-
-func foo() {
-	defer func() {
-		fmt.Println("foo DEFER ran")
-	}()
-	fmt.Println("foo ran")
-}
-
-func bar() {
-	fmt.Println("BAR")
+	p1 := person{
+		first: "James",
+		last:  "Bond",
+		age:   32,
+	}
+	p1.speak()
 }
