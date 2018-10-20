@@ -2,23 +2,42 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
-type person struct {
-	first string
-	last  string
-	age   int
+type circle struct {
+	radius float64
 }
 
-func (p person) speak() {
-	fmt.Println("I am ", p.first, p.last, "and I am", p.age, "years old.")
+type square struct {
+	length float64
+}
+
+type shape interface {
+	area() float64
+}
+
+func info(s shape) {
+
+	fmt.Println(s.area())
+}
+
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
+}
+
+func (s square) area() float64 {
+	return s.length * s.length
 }
 
 func main() {
-	p1 := person{
-		first: "James",
-		last:  "Bond",
-		age:   32,
+	circ := circle{
+		radius: 12.345,
 	}
-	p1.speak()
+	squa := square{
+		length: 15,
+	}
+
+	info(circ)
+	info(squa)
 }
