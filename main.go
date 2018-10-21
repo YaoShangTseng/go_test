@@ -5,23 +5,22 @@ import (
 )
 
 func main() {
-	g := func(xi []int) int {
-		for i := 0; i < len(xi); i++ {
-			if len(xi) == 0 {
-				return 0
-			}
-			if len(xi) == 1 {
-				return xi[0]
-			}
-		}
-		return xi[0] + xi[len(xi)-1]
-	}
-	x := foo(g, []int{1, 2, 3, 4, 5, 6})
-	fmt.Println(x)
+	f := foo()
+	fmt.Println(f())
+	fmt.Println(f())
+	g := foo()
+	fmt.Println(g())
+	fmt.Println(g())
+	fmt.Println(g())
+	fmt.Println(g())
+	fmt.Println(g())
+	fmt.Println(g())
 }
 
-func foo(f func(xi []int) int, ii []int) int {
-	n := f(ii)
-	n++
-	return n
+func foo() func() int {
+	x := 0
+	return func() int {
+		x++
+		return x
+	}
 }
