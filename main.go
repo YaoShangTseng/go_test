@@ -4,8 +4,20 @@ import (
 	"fmt"
 )
 
+type person struct {
+	name string
+}
+
+func changeMe(p *person) {
+	p.name = "Miss Moneypenny"
+	(*p).name = "Miss Moneyp"
+}
+
 func main() {
-	x := 42
-	fmt.Println(x)
-	fmt.Println(&x)
+	p1 := person{
+		name: "James Bond",
+	}
+	fmt.Println(p1)
+	changeMe(&p1)
+	fmt.Println(p1)
 }
