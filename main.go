@@ -1,23 +1,37 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
-type person struct {
-	name string
-}
-
-func changeMe(p *person) {
-	p.name = "Miss Moneypenny"
-	(*p).name = "Miss Moneyp"
+type user struct {
+	First string
+	Age   int
 }
 
 func main() {
-	p1 := person{
-		name: "James Bond",
+	u1 := user{
+		First: "James",
+		Age:   32,
 	}
-	fmt.Println(p1)
-	changeMe(&p1)
-	fmt.Println(p1)
+
+	u2 := user{
+		First: "Moneypenny",
+		Age:   27,
+	}
+
+	u3 := user{
+		First: "M",
+		Age:   54,
+	}
+
+	users := []user{u1, u2, u3}
+
+	fmt.Println(users)
+	bs, err := json.Marshal(users)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(bs))
 }
