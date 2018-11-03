@@ -2,27 +2,25 @@ package main
 
 import (
 	"fmt"
+	"runtime"
+	"sync"
 )
 
-type person struct {
-	first string
-}
-
-type human interface {
-	speak()
-}
-
-func (p *person) speak() {
-	fmt.Println("Hello")
-}
-
-func saySomething(h human) {
-	h.speak()
-}
-
 func main() {
-	p1 := person{
-		first: "James",
+	var wg sync.WaitGroup
+	incrementer := 0
+	gs := 100
+	wg.Add(gs)
+	for i := 0; i < gs; i++ {
+		go func() {
+			v := incrementer
+			runtime.Gosched()
+			v++
+			incrementer = v
+			fmt.Println(incrementer)
+			wg.Done()
+		}()
 	}
-	saySomething(&p1)
+	wg.Wait()
+	fmt.Println("end value :", incrementer)
 }
