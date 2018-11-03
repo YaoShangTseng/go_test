@@ -2,30 +2,27 @@ package main
 
 import (
 	"fmt"
-	"runtime"
-	"sync"
 )
 
+type person struct {
+	first string
+}
+
+type human interface {
+	speak()
+}
+
+func (p *person) speak() {
+	fmt.Println("Hello")
+}
+
+func saySomething(h human) {
+	h.speak()
+}
+
 func main() {
-	fmt.Println("begin CUP", runtime.NumCPU())
-	fmt.Println("begin gs", runtime.NumGoroutine())
-
-	var wg sync.WaitGroup
-	wg.Add(2)
-	go func() {
-		fmt.Println("hello from thing one")
-		wg.Done()
-	}()
-	go func() {
-		fmt.Println("hello from thing two")
-		wg.Done()
-	}()
-
-	fmt.Println("mid CUP", runtime.NumCPU())
-	fmt.Println("mid gs", runtime.NumGoroutine())
-
-	wg.Wait()
-	fmt.Println("about to exit")
-	fmt.Println("end CUP", runtime.NumCPU())
-	fmt.Println("end gs", runtime.NumGoroutine())
+	p1 := person{
+		first: "James",
+	}
+	saySomething(&p1)
 }
